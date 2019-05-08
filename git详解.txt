@@ -1,0 +1,66 @@
+1.首先从在本地建一个GIT仓库开始
+   #git init
+   ##现在你当前目录将有一个.git目录 这就是你的本地仓库了！
+2.在github 或者 码云 新建一个项目（默认配置） 并且复制SSH网址
+   #在当前目录gitbash 输入 git remote add origin SSH网址
+   ##git push origin master(本地git仓库默认创建的分支推送到远程并创建) 
+     >现在你已经把本地master里的内容推送到远程origin的master里面了
+   ###或者在github已有的项目下把克隆网址复制，在本地文件夹下git clone 网址
+3.本地建立分支，添加暂存区，把暂存区修改提交到当前分支
+   #git checkout -b(代表去新建的分支下) branchName(自定义名字) 或者 git branch branchName
+     >git branch查看本地分支 git branch -a 查看本地和远程分支 git branch branchName -d删除本地分支
+   ##当git仓库管理的目录下出现已被跟踪或者未跟踪新增文件有修改
+     >使用git add fileName（要添加到暂存区的文件名）或者 git add .(代表所有修改的文件名和新增的文件名)
+   ###切换分支 git checkout branchName
+   ####使用git commit -m(后面代表注释) "哈哈这是我第一次提交"
+4.git版本回退
+   #使用git log -3(代表显示三条数据)查看修改日志
+   ##输入 git reset --hard HEAD^(^代表回退上一个版本 ^^回退两个 ~100回退一百个 as120a回退的版本号)
+   ###当回退到历史版本,用git log 查看不了当前版本以后的修改版本
+      使用git reflog 可以查看全部修改操作的版本号的修改注释  
+5.git工作区和暂存区
+   #git把管理的目录里的所有文件都作为工作区
+   ##暂存区的所有操作快照都是从工作区add过来的
+   ###commit只是把暂存区的所有操作快照提交到当前的分支里，未被add进暂存区的操作不会被commit；
+6. git撤销修改
+   #未被add
+     >使用git checkout -- fileName 可以把工作区的操作撤销
+   ##已经add进暂存区
+     >使用git reset HEAD fileName  可以将暂存区该文件的最后一次添加进去的操作回退到上一次提交状态
+	  >在使用git checkout -- fileName
+   ###已经add进暂存区并且提交commit至本地分支   
+     >使用版本回退  再使用撤销工作区操作
+7.git获取SSH
+   #ssh-keygen -t rsa -C "youremail@example.com"
+8.合并分支和解决冲突
+   #先创建git checkout -b dev 完成提交后 切换到master主分支上
+     >使用git merge dev (faster-forward模式，该模式仅仅只是把master指针指向dev分支上)
+	 >>使用git merge dev --no-ff -m "这是我的注释" （禁用fast模式,使用提交的方式把dev上的操作提交上上去）
+   ##当dev分支提交的操作与 master主分支上的操作有冲突（两个分支都创建了一样的文件，都在同一个文件下做了修改）
+     >此时合并会出现冲突提示，有两个解决办法
+       #取消合并 git merge abort
+       ##git status 查看冲突的文件,然后去冲突的文件下把差异修改为自己想要的
+     >>最后add 再commit ok解决了冲突！
+9.stash储存
+   #在你当前分支有一些未完成的任务，而主分支又有一些bug需要修改
+   ##这时候你可以用git stash保存现场 在切换到主分支创建一个修复分支再合并
+   ###这时回到你的分支，用git stash pop把储存的现场还原
+     >在git中 工作区和暂存区都是公共的，如果不进行commit操作在任何分支都能看到；
+     >>使用stash可以将当前分支的工作区和暂存区的操作进行隐藏，其他分支就看不到
+10.删除未合并的分支
+   #git branch -D branchName
+11.git pull
+   #当你clone了一个git库并进行了一些列操作，最后提交和推送
+   ##当远程库比你clone的git库更新，此时需要git pull抓取最新并且合并 
+     >如果本地分支与远程分支无关联 git branch --set-upstream branch-name origin/branch-name
+	 >>抓取合并有冲突解决冲突commit 再最后push
+12.标签操作
+   #创建标签git tag tagName(默认当前最新版本)  || git tag tagName 版本号
+   ##查看标签git show tagName
+   ###推送标签 git push origin tagName
+   ####删除本地标签 git tag -d tagName
+   #####删除远程标签git push origin -d tagName
+13.配置命令别名
+   #项目配置 git config alias.<你的自定义> 这是初始命令
+   ##全局配置git config --global alias.<你的自定义> 这是初始命令
+   ###删除去.git文件夹下的config里有个alias，直接删除或者添加！
