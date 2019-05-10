@@ -1,0 +1,14 @@
+1.简单认识 
+  # 在js里一切皆对象(null,undefinde除外)
+  ## 对象都有一个隐式原型__proto__ 函数还有一个prototype指向原型对象
+
+2.Object
+  # eg: var obj = new Object()
+  ## obj的隐式原型__proto__指向该构造函数Object的prototype
+  ### Object没有原型所以他的prototyte的__proto__指向null
+  
+3.Function
+  # eg: function fun (){}  var obj = new fun()
+  ## obj.__proto__ 指向构造他的函数fun的prototype上
+  ### fun.prototype也是一个对象，所以他的隐式原型指向Object的prototype
+  #### Object没有原型所以他的prototyte的__proto__指向null
