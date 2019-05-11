@@ -1,4 +1,4 @@
-1.首先从在本地建一个GIT仓库开始
+﻿1.首先从在本地建一个GIT仓库开始
    #git init
    ##现在你当前目录将有一个.git目录 这就是你的本地仓库了！
 2.在github 或者 码云 新建一个项目（默认配置） 并且复制SSH网址
@@ -14,10 +14,10 @@
    ###切换分支 git checkout branchName
    ####使用git commit -m(后面代表注释) "哈哈这是我第一次提交"
 4.git版本回退
-   #使用git log -3(代表显示三条数据)查看修改日志
+   #使用git log -3(代表显示三条数据)查看修改日志 按q结束
    ##输入 git reset --hard HEAD^(^代表回退上一个版本 ^^回退两个 ~100回退一百个 as120a回退的版本号)
    ###当回退到历史版本,用git log 查看不了当前版本以后的修改版本
-      使用git reflog 可以查看全部修改操作的版本号的修改注释  
+      使用git reflog 可以查看本地全部修改操作的版本号的修改注释  
 5.git工作区和暂存区
    #git把管理的目录里的所有文件都作为工作区
    ##暂存区的所有操作快照都是从工作区add过来的
@@ -51,7 +51,7 @@
    #git branch -D branchName
 11.git pull
    #当你clone了一个git库并进行了一些列操作，最后提交和推送
-   ##当远程库比你clone的git库更新，此时需要git pull抓取最新并且合并 
+   ##当远程库比你clone的本地git库更新，此时需要git pull抓取最新并且合并 
      >如果本地分支与远程分支无关联 git branch --set-upstream branch-name origin/branch-name
 	 >>抓取合并有冲突解决冲突commit 再最后push
 12.标签操作
