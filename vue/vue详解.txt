@@ -1,13 +1,22 @@
 Vue.extend(options) 详解：
-  ## options是一个组件模板对象 Vue.extend是一个组件构造器
-  ### 通过Vue.extent()获得的对象 该对象和模板对象一模一样 再进行new实例化时可以对原先的组件模板进行扩展
+  ## options是一个单纯的对象 
+  
+  ### Vue.extend是一个组件构造器，用于把Vue内部的属性继承下来转换成组件的通用模板
+  
+  #### 通过Vue.extent()获得的通用模板 进行new实例化时可以对其进行扩展
       >options = { created(){ console.log(1) } }
       >var pro = Vue.extend(options)  new pro({  created(){ console.log(-2) } })
       >现在pro内部变成了这样{ created(){ console.log(1);created(){ console.log(-2)} }
 
+
+
 Vue.component('自定义组件名称',Vue.extend(options))
+
   # 等价于Vue.component('自定义组件名称',options)
 
+
 Vue的挂载
-  # new Vue({  }).mount('#app')
+  # 可以是一个字符串或者DOM
+  
+  ## new Vue({  }).mount('#app')   el:'#app'  ||  el:'document.createElement('div')'
     > var Vue = Vue.extend({}) new Vue({  }).mount('#app')
