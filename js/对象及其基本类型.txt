@@ -1,0 +1,25 @@
+1.js基本类型
+ # string
+ # number
+ # boolean
+ # undefined
+ # null
+ # object
+ 
+2.内建对象
+ # Function
+ # Object
+ # Number
+ # String
+ # Boolean
+ 
+3.基本类型的总结
+ # 简单的基本类型不是对象，但是当调用相关方法时，js会自动转换为相似的内建对象
+ 
+4.对象的声明
+ # 字面量声明 eg：{ var obj = { name : 'zs'  } }
+ ## new eg: { var obj = new Fun() }
+ 
+3.构造函数
+ # 构造函数只是一个通用模板
+ ## 通过new 构造函数出来的实例对象，可以在构造函数里传入参数，使其特征化
