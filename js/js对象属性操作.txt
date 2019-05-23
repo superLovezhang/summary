@@ -1,0 +1,25 @@
+1.对象数据操作符操作(即一个对象内属性值只是简单的字面量)
+ # [get]
+   > 当Obj.属性时，js会采用内部[get]方法去遍历对象内部属性
+     找到就返回值，找不到就去他的原型链去找，直到找到或找不到返回值或者undefined
+ ## [push]
+   > 当Obj.属性 = 属性值时，js会采用内部[push]方法去遍历对象内部属性，
+     找到就查询wirtable是否为true,最后覆盖；
+	 
+2.对象访问其操作符操作(即一个对象内属性值是一个类似带有返回值的函数)
+ # [getters]
+   >  获取对象里get属性的返回值
+ ## [setters]
+   >  set属性接受一个参数，可以更改返回值
+   
+   
+3.对象内部的默认属性
+ # value 该属性的值
+ ## writable 是否可以更改
+ ### configurable 是否可以更改内部默认属性
+ #### enumerable 是否可以枚举出来
+ 
+ 
+4.for-in for-of
+ # 遍历对象用for-in eg：{ for( var key in obj ) }
+ ## for-of eg: { for( var value in obj )  }
