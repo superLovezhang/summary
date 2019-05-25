@@ -1,0 +1,13 @@
+1.实例方法
+ # 构造函数内部this的函数方法 eg: this.say = function(){ console.log(11) }
+   > 只能通过new出来的实例进行调用
+
+2.内部方法 eg: say = function(){ console.log(11) }
+   > 通过实例访问不到，只能在构造函数内部进行调用
+
+3.静态方法 eg: fun.sat = function(){ cosole.log(111) }
+  > 只能通过构造函数名进行调用
+
+4.原型方法 eg: fun.prototype = function(){ console.log(11) }
+  > 只能通过new出来的实例进行调用
+  

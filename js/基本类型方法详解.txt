@@ -1,0 +1,5 @@
+1.方法详解
+ # 所有基本类型(number,string,boolean,arrary,function,object)
+ ## 我们通过字面量形式创建一个变量，此时它还只是一个基本类型
+ ### 当我们通过变量调用相关方法时，js会自动把基本类型通过相关内建对象(string -- String)new一个实例对象
+ #### 此时调用实例方法，[get]会在实例内部沿着原型链寻找(实例=>String.prototype=>Object.prototype=>null)
