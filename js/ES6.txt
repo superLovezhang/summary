@@ -1,0 +1,70 @@
+在ES5中，js有许许多多繁琐不合理的地方，值得庆幸的是，在ES6新标准中解决了部分，使其代码更加优雅美观了！
+
+1.let,const声明
+ # 在ES6之前，变量的声明只有var，用var声明变量的特点如下
+   > 声明提升，在全局作用域或者局部作用域中var声明的变量会在当前作用域
+     中被js提升
+   > 可以重复声明，重复声明的变量值会被覆盖
+   > 已声明的变量可以对其进行更改
+   
+ ## let声明
+   > 被称为块级作用域声明，用Let声明的变量会被当前作用域所捕获即{} 在该作用域之外无法访问变量
+   > 变量并不会被提升 所以说在声明变量之前的位置访问变量将不会是undefined，而是error！
+   > 变量不能被重复声明
+   
+ ### const声明
+   > const声明的变量值不可更改，但是值为引用的地址，只可以更改，但是地址不能更改
+   > 变量无法提升
+   > 变量不能被重复声明
+
+
+2.字符串模板和方法
+ # 在ES6之前变量和字符串进行拼接，往往需要多个‘+’号进行pinjie
+
+ ## ES6可以使用反引号``,反引号内部的内容默认为字符串，${}内部的值为变量
+
+
+3.结构赋值
+ # ES6之前对多个变量进行赋值，需要多行进行var声明bingqie赋值，只是繁琐的
+
+ ## ES6结构赋值
+    > 对象： var{ name, age } = { name:'张三', age:18 } 
+	  注: 声明的变量名要与对象内的属性名对应，顺序无所谓
+	  要是想声明的变量名与对象内部的属性名不一样，可以在{}内部对应的变量名后面加:和自己要声明的变量名
+	> 数组： var[a,b] = [1,2]
+	  注: 声明的变量顺序要一一对应
+	  左边声明的变量多余右边数组中的元素，超出数组元素外声明的变量为undefined
+	  右边数组中的元素多于左边声明的变量，左边的变量与数组的元素顺序一一对应赋值
+
+
+4.函数
+ # es6之前的一般函数内部的this绑定有四种绑定形式
+   > (回顾一下有：默认绑定window，隐形绑定调用该函数的对象，强制绑定call，apply，bind的第一个参数，new绑定为实例出的对象)
+
+ ## 箭头函数 (伟大的新特性)   
+   > 在es6中，新特性箭头函数不同于一般函数，箭头函数内部没有this，因此箭头函数使用this相当于向上一级访问作用域链this
+   
+ 
+5.class 和 extend
+ # 在es6之前，要实现继承需要花费相当繁琐的步骤
+   > 实现继承 eg： function Fun(name,age){  this.name = name; this.age = age;} Fun.prototype.say = function(){ console.log(this.naem) }  
+   >               var obj = new Fun('张三',18);
+
+ ## es6中实现继承可以使用新添加的关键词class,extend
+   > 实现继承 eg： class Person{  constructor(name, age){ this.name = name; this.age = age; }  say(){ console.log(this.name) } }
+                   var student1 = new Person() 
+   > 当另一个构造函数要继承一个构造函数时
+     eg：class Worker extend Person{ constructor(name, age, sex){ super(); this.sex = sex;  } Song(){ super.say(); console.log(this.sex); }  }
+         var manWorker = new Worker('李四',25,man);
+	 注：constructor就是构造函数,class内部定义的函数相当于在构造函数的原型上定义；
+
+
+6.模块化标准
+ # 理解: 一个js文件即为一个模块，这些模块可以在html中用script标签导入，但是这样做的问题有
+   > 顺序要对应 如模块三要用到模块二，模块二要用到模块一，导入顺序只能是1--3
+   > 作用域污染，在模块内声明的全局作用域变量被导入后即为被导入文件的全局作用域变量
+
+ ## es6中添加了新关键词import 和 export
+   > export: 在一个js文件中export可以导出多次，在导入时候使用import {} from ‘’ {}内写上对应导出的对象属性名
+   > export default: 在一个js文件中export default 只被允许出现一次， 在导入的时候使用 import 属性名 from ''
+   
