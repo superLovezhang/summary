@@ -1,0 +1,80 @@
+1.w,h,bg,text
+
+ # w表示width，写法： w-50  表示宽50px  h表示height， 写法： h-50  表示高50px
+ 
+ ## bg表示背景颜色  写法： bg-primary，secondary，sucess，warning，info  
+ 
+ ### text表示文字  写法： text-black/muted 表颜色 text-center 表位置
+ 
+ 
+2.p,m
+ 
+ # p表示内边距padding  写法： px-xxx(pr-xxx pl-xxx) py-xxx(pt-xxx pb-xxx )
+  
+ ## m表示内边距margin   写法同上
+  
+  
+3.文本显示格式
+
+ # text-uppercase 英文大写
+  
+ ## text-lowercase 英文小写
+  
+ ### text-capitalize 首字母大写
+  
+
+4.btn
+
+ # btn表示按钮样式
+ 
+ ## btn-primary，secondary，sucess，warning，info 表示按钮颜色
+ 
+ ### btn-sm/lg 表示按钮大小
+ 
+ 
+5.栏栅格
+
+ # row 在父标签上写上这个
+ 
+ ## col 子标签写上col-数量   一行有12格 超出的再下一行显示
+ 
+6.响应式
+
+ # col-sm/md/lg/xl 表示手机屏幕，平板，电脑，超清；
+ 
+ ## col-xxx-后面接数量   表示xxx屏幕以上显示多少格子
+ 
+ 
+7.container
+
+ # 建议父容器带上container，可以响应式居中
+ 
+ 
+8.display
+ 
+ # display表示文本显示大小 写法： display-数量  对应h标签
+ 
+
+9.表格
+
+ # table表示表格样式 table-hover表示鼠标移入变色
+ 
+ 
+10.tab
+
+ # 父标签写上 nav nav-tabs  子标签写上nav-item a标签写上nav-link data-toggle="tab" 
+   还有锚点
+ 
+ ## 点击tab对应显示的内容父标签写上tab-content 子标签写上tab-pane
+ 
+ 
+11.鼠标移入显示提示
+
+ # 添加title=“要提示的文本” data-toggle="tooltip"
+ 
+ ## js: $(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+	})
+	
+	
+12.
