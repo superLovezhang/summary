@@ -1,0 +1,48 @@
+1.npm简介
+
+ # npm是node第三方模块管理仓库
+ 
+ ## npm简单语句
+  
+    > install  下载安装第三方模块
+	> uninstall  卸载第三方模块
+	> -save(不写默认)/-save-dev/-g  下载为生产环境(项目最终上线)/开发环境(编写项目)/全局环境(可以在命令行直接运行)
+	>--save会写到dependencies里 --save-dev会写到Dependencies里 -g会写到node全局目录里，默认开发会下载到node_modules，但是不会写到dependencies里
+	> npm config list  可以查看全局第三方模块安装目录
+	
+ ### package.json版本介绍 ^1.0.3
+   
+     > 1表示 主版本号 特大更新将会改动
+     > 0表示 次版本号 更改一些内容将会改动
+     > 3表示 修改版本号 修改一些bug将会改动
+     > ^表示用户可以最多升级到次版本号最新
+     > ~表示用户可以最多升级到修改版本号
+     > *表示用户可以最多升级到主版本号	 
+	
+ #### nrm管理下载服务器
+    
+	 > npm i nrm -g  全局下载nrm源管理
+	 > nrm ls  查看nrm列表
+	 > nrm test  测试各nrm延迟
+	 > nrm use  使用各nrm源
+	 
+ ##### 设置快捷命令
+       
+	   > 在package.json里script添加需要npm run XX 的“xx”， 值为原始运行的命令
+	   > 当快捷命令为start时,run可以省略
+	 
+
+2.发布自己的npm模块
+
+ # 切换nrm到npm
+ 
+ ## npm login  npm publish
+ 
+ 
+3.第三方模块 
+
+ # nodemon(修改js文件自动重启node服务)
+   > npm i -g nodemon
+   
+ ## moment(时间模块)
+    > npm i -g moment
