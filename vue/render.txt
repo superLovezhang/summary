@@ -1,0 +1,10 @@
+1.vue Dom渲染
+
+ # template模板渲染
+  
+ ## render函数渲染 eg: render:function(createElement){  return createElement( '', {}, [] ) }
+ 
+    > render函数内部return的函数接受三个参数
+	  * 第一个参数可以是字符串('div','p'...) 也可以是模板对象( template:'<p>乱七八糟</p>',methods:{},... )
+	  * 第二个参数是一个可选对象{ class:{ 要给渲染的DOM绑定class名称 }，style:{ css属性 }，attrs:{ 绑定属性,id,name... }，domProps:{ DOM属性 }，on{事件} }
+	  * 第三个参数表示子元素，可以是数组或者字符串，字符串表示dom子元素文本，数组表示dom内部子元素标签 [ createElement('div',{}),createElement('span',{})... ]
