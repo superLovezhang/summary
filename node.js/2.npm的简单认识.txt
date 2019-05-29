@@ -1,4 +1,4 @@
-1.npm简介
+﻿1.npm简介
 
  # npm是node第三方模块管理仓库
  
@@ -51,30 +51,8 @@
     > npm i -g moment
 	
 	
-4.Express框架
 
- # 是http模块的封装
- 
-   > 用法
-     * npm i express const express = quire('express')  const app = express() app.get('url',callback(req,res))  app.listen(locakhost,calllback)
-	 * app.get app.post app.all  可以接听get/post/所有请求
-	 * app.use 也可以匹配任意类型 但是匹配请求url只要求根路径url一样就ok   后面可以加/:数据  req.params这个对象包含了路由参数
- 
- ## res.end() res.send() res.render() 都是响应数据，第一个乱码，第三个需要模板  是res.setHeader() res.write() res.end() 的封装
- 
- ### art模板
- 
-     > 用法
-	   * npm i art-template express-art-template  
-	   * 在文件中更换express的模板  app.engine('html',require('express-art-template')) 
-	   * res.render('./需要渲染的文件路径',{渲染模板使用的对象})
- 
- #### 托管静态文件请求
- 
-      > 用法
-     	* res.use('/css或js文件的顶级文件名称',express.static('css或js文件的顶级文件夹名称'))  实质是封装了fs模块
-		
-5.nvm管理node版本
+4.nvm管理node版本
   
  # 去官网下载安装包，安装到node安装的根目录(nodejs平级文件夹下)
    
@@ -87,7 +65,6 @@
 	 * nvm use (切换node版本)
     
 	 
-	  
      
 	
 	 

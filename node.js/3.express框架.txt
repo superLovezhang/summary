@@ -1,0 +1,81 @@
+﻿1.Express框架
+
+ # 是http模块的封装
+ 
+   > 用法
+     * npm i express const express = quire('express')  const app = express() app.get('url',callback(req,res))  app.listen(localhost,calllback)
+ 
+ ## 路由
+    
+	> 普通路由
+	 * app.get/post/all()  分别匹配get/post/所有请求方法  接受两个参数，前一个字符串请求url地址，后一个回调
+	 * 回调接收三个参数 req/res/next  req请求url，当请求是post方法,url数据在req.body里 
+	   res有三个方法 res.end/send/render() 第一个乱码，第三个需要模板  是res.setHeader() res.write() res.end()集体的封装
+	 * 后一个回调除了常用的req，res还可以接受第三个next参数  主要用来抛出next(err)抛出错误 该错误会被下一个中间件捕获处理
+	
+	> 中间件(特殊路由)
+	 * app.use  可以不完全匹配请求url地址，即只要一个或多个相同即可匹配
+	 * 接受两个参数，前一个字符串请求url地址(当过滤所有请求路由时,可省略不写)，后一个回调 可接受四个参数 err，req，res，next
+	 * 回调带有err和next参数的中间件可以接受前面普通路由next抛出的err  进行res处理  (常用来处理一个网页所有数据错误渲染的页面)
+	 * 中间件只要匹配成功即不会继续往下匹配路由，当有next参数可以调用next()使其继续往下匹配  (在最后添加常用来处理一个网页未知路由的页面)
+	   也有例外,中间件当回调带有err和next的不用前一个中间件next()也可匹配，或者自己不next()也可继续往下匹配路由
+	   
+	> express处理post请求
+	  
+	  * const bodyParser = require('body-parser'); app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: false })); 然后在相应的页面用req.body获取数据
+    
+	> express处理静态文件
+	  * app.use('/css或js文件的顶级文件名称',express.static('css或js文件的顶级文件夹名称'))  实质是封装了fs模块
+    
+ ### art模板
+ 
+     > 用法
+	   * npm i art-template express-art-template  
+	   * 在文件中更换express的模板  app.engine('html',require('express-art-template')) 
+	   * res.render('./需要渲染的文件路径',{渲染模板使用的对象})
+	
+
+2.cookie和session
+ 
+ # cookie(根据cookie时效存储)
+   
+  > 用法
+    * 下载 npm i -D cookie-parser  在文件入口 const cookieParser = require('cookie-parser');  app.use('/',cookieParser('superLovezhang'));
+	* 语法 设置: res.cookie('键'，值) 第三个参数是对象{} signed: true 表示加密 maxAge:1000 表示cookie储存时效|单位毫秒
+	       读取: req.cookies.键查看普通cookie   req.signedCookies.键查看加密cookie
+		   删除: res.clearCookie(‘键’)
+		   
+ ## session(关闭浏览器即清除)
+ 
+    > 用法
+    * 下载 npm i -D express-session  在文件入口 const session = require('express-session');  app.use(session({
+																								secret: 'superLove',   // 加密储存
+																								resave: false,         // 客服端并行请求是否覆盖
+																								saveUninitialized: true // 初始化session存储
+																							}))
+	* 语法 设置: req.session.键 = 值 
+	       读取: req.cookies.键
+		   删除: req.cookies.键 = null
+	
+	
+	
+3.express模块化	
+
+ # 入口文件
+   
+   > 用法
+     * 获取路由文件  const loginRouter = require('./routes/loginRouter.js');  
+	 * 配置 app.use('/请求根路径',loginRouter);  路由文件里的路由url都在请求根路径之后
+	 
+ ## 路由文件
+ 
+    > 用法
+	  * 导入  const router = express.Router();  所有app换成router  最后exports.router = router；
+	  
+ ### module文件
+ 
+    > 用法 
+	  * 创建对应路由文件读写文件方法
+	  * module.exports.方法 在路由文件中导入方法文件
+   
+		
