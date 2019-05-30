@@ -13,26 +13,23 @@
    
  ## 系统模块  node官方提供的模块
  
-	> os 用于检测用户电脑配置相关模块 console.log(os.freemem()) //检测电脑空闲空间 byte单位
-								      console.log(os.hostname()) //检测电脑名
-								      console.log(os.EOL)  //检测电脑一系列配置
-								      console.log(os.cpus()) //检测电脑cpu
+    > os 用于检测用户电脑配置相关模块 console.log(os.freemem()) //检测电脑空闲空间 byte单位
+				 console.log(os.hostname()) //检测电脑名
+				 console.log(os.EOL)  //检测电脑一系列配置
+				 console.log(os.cpus()) //检测电脑cpu
 									  
-	> path 用于路径的操作    path.basename() 取最后一层路径 path.dirname()去最后一层路径
+    > path 用于路径的操作    path.basename() 取最后一层路径 path.dirname()去最后一层路径
 	
-	> fs  用于读写文件      fs.readFile('文件相对路径','utf8用于转码,还可以用toString进行转码',callback(err,data)回调函数，接收失败和文件内容参数)
-	                          fs.writeFile('文件相对路径','写入的内容',callback(err)回调函数，有接收失败参数)
+    > fs  用于读写文件      fs.readFile('文件相对路径','utf8用于转码,还可以用toString进行转码',callback(err,data)回调函数，接收失败和文件内容参数)
+	                  fs.writeFile('文件相对路径','写入的内容',callback(err)回调函数，有接收失败参数)
 							  
-	> url  用于解析url数据操作    url.parse('url网址',true表示网址query数据转换为对象)  
+    > url  用于解析url数据操作    url.parse('url网址',true表示网址query数据转换为对象)  
 	
-	> http  用于开启一个服务器操作  const server = http.createServer()  
-	                                    server.on('request请求',callback(requset,response)回调函数接收请求和响应) 
-										* 回调函数内requset操作 req.url 请求路径 req.headers 请求头部信息（对象）
-										* req.method 请求方法(GET,POST)  req.rawHeaders 请求头部信息（数组）
-										* get请求数据直接url.parse()获取
-										* post请求数据先导入querystring模块 再l
-										  et postData = '';
-										  req.on('data', function(chunk){
+    > http  用于开启一个服务器操作  const server = http.createServer()  server.on('request请求',callback(requset,response)回调函数接收请求和响应) 
+	    * 回调函数内requset操作 req.url 请求路径 req.headers 请求头部信息（对象）
+	    * req.method 请求方法(GET,POST)  req.rawHeaders 请求头部信息（数组）
+	    * get请求数据直接url.parse()获取
+	    * post请求数据先导入querystring模块 再let postData = ''; req.on('data', function(chunk){
 											  postData += chunk;
 										  });
 										  req.on('end', function(){
@@ -42,3 +39,5 @@
 										server.listen(端口号,callback()回调用来提示成功和端口)
 										
 										
+
+										  
