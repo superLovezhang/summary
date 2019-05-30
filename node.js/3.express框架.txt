@@ -41,21 +41,21 @@
    
   > 用法
     * 下载 npm i -D cookie-parser  在文件入口 const cookieParser = require('cookie-parser');  app.use('/',cookieParser('superLovezhang'));
-	* 语法 设置: res.cookie('键'，值) 第三个参数是对象{} signed: true 表示加密 maxAge:1000 表示cookie储存时效|单位毫秒
-	       读取: req.cookies.键查看普通cookie   req.signedCookies.键查看加密cookie
-		   删除: res.clearCookie(‘键’)
+    * 语法 设置: res.cookie('键'，值) 第三个参数是对象{} signed: true 表示加密 maxAge:1000 表示cookie储存时效|单位毫秒
+	  读取: req.cookies.键查看普通cookie   req.signedCookies.键查看加密cookie
+	  删除: res.clearCookie(‘键’)
 		   
  ## session(关闭浏览器即清除)
  
     > 用法
     * 下载 npm i -D express-session  在文件入口 const session = require('express-session');  app.use(session({
-																								secret: 'superLove',   // 加密储存
-																								resave: false,         // 客服端并行请求是否覆盖
-																								saveUninitialized: true // 初始化session存储
-																							}))
-	* 语法 设置: req.session.键 = 值 
-	       读取: req.cookies.键
-		   删除: req.cookies.键 = null
+												secret: 'superLove',   // 加密储存
+												resave: false,         // 客服端并行请求是否覆盖
+												saveUninitialized: true // 初始化session存储
+												})
+    * 语法 设置: req.session.键 = 值 
+	   读取: req.cookies.键
+           删除: req.cookies.键 = null
 	
 	
 	
